@@ -37,3 +37,53 @@ $('.previous').click(function(){
         console.log("ya no hay mas elemetos");
     }
 });
+//modal function
+function centrar(elem,posy){ 
+    var posicion;
+    if(posy==0){
+        posicion=60;
+    }else{
+        posicion=posy;
+    }
+    elem.style.top=posicion + 'px'
+    
+}
+
+function clickHandler(path) {
+    let divModal = document.getElementById('modal');
+    divModal.style.display="block";
+    divModal.innerHTML = "";
+    
+    let divCerrar = document.createElement('div');
+    divCerrar.setAttribute('class', 'modal-close');
+    
+    let iconCerrar= document.createElement('img');
+    iconCerrar.setAttribute('src', 'static/img/icon/cerrar.png')
+    divCerrar.appendChild(iconCerrar);
+
+    divModal.appendChild(divCerrar);
+
+    divCerrar.addEventListener('click',function(){
+        event.preventDefault();
+        closeModal();
+    });
+
+    let divContent=document.createElement('div');
+    divContent.setAttribute('class','modal-content');
+
+    let frame=document.createElement('iframe');
+    frame.setAttribute('src',path);
+
+    divContent.appendChild(frame);
+    divModal.appendChild(divContent);
+    var y = window.scrollY;
+    console.log("posicion del scroll",y);
+    $("html, body").css("overflow","hidden");
+    centrar(divModal,y);
+}
+
+function closeModal(){
+    let divModal = document.getElementById('modal');
+    divModal.style.display="none";
+    $("html, body").css("overflow","scroll");
+}

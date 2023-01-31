@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+    <!--personal css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    {% endblock %}
+</head>
+
+<body>
+    <header id="main-header">
+		<img id="logo-header" src="{{ url_for('static', filename='img/logo chaac-1.png') }}">		
+		 <!-- / #logo-header -->
+             <nav >
+			    <ul>
+                {%if true:%}
+                    <li class="dropdown "> <a>alejandro</a>
+                        <ul class="dropdown-content">
+                            <li><button id="logout" type="submit" class="iconbutton"> logout</button></li>
+                        </ul>
+                    </li>
+                {%endif%}
+			    	<li><a href="/index">beginning</a></li>
+		    		<li><a href="#">information</a></li>
+			    </ul>
+		    </nav><!-- / nav -->
+	</header>
+            {% block content %}{% endblock %} 
+        </div>
+        </div>
+{% block footer %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js "> </script>
+
+<!--library js-->
+<script src="{{ url_for('static', filename='js/gallery.js') }}"></script> 
+{% endblock %}
+</body>
+
+</html>

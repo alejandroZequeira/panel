@@ -31,7 +31,7 @@ function createPanelsCarousel(totalPlots, frames, paths){
 
     let inputElement = document.createElement('input');
     inputElement.setAttribute('class', 'zoom-center');
-    inputElement.setAttribute('src', 'static/dist/img/zoom.png')
+    inputElement.setAttribute('src', 'static/img/icon/zoom.png')
     inputElement.type = "image";
 
     inputElement.addEventListener('click', function () {
@@ -56,7 +56,7 @@ function createPanelsCarousel(totalPlots, frames, paths){
         cardBodyDiv.appendChild(frames[i]);     
         let inputElement = document.createElement('input');
          inputElement.setAttribute('class', 'zoom-center')
-            inputElement.setAttribute('src', 'static/dist/img/zoom.png')
+            inputElement.setAttribute('src', 'static/img/icon/zoom.png')
             inputElement.type = "image";
         cardDiv.appendChild(inputElement);
 
