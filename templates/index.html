@@ -2,10 +2,26 @@
 {% endblock %} {%
 block content %}
 <section>
-   <div id="filter">                     
+   <label>Elige un DataSet: </label>
+   <select id="dataSet">
+      {%for d in data%}
+      <option>{{d}}</option>
+      {% endfor%}
+   </select>
+   <div class="content">
+      <div id="filter">
+      </div>
+      <div id="graf">
+      </div>
+      <div id="data" class="data-container">
+         {%include 'table.html'%}
+      </div>
    </div>
-   <div id="graf"></div>
-   <div id="data"></div>
 </section>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 {% endblock %}
