@@ -6,6 +6,7 @@ import plotly
 import plotly.graph_objs as go
 import numpy as np
 import os
+import binascii
 app = Flask(__name__)
 
 
@@ -18,11 +19,11 @@ def uploadDataSet():
             dataCsv.append(fichero)
     return dataCsv
 
-@app.route('/readDataset',methods=['GET'])
-def readDataSet(path):
-    if not path:
-        path=request.data
-    dat=pd.read_csv(path)
+@app.route('/readDataset',methods=['POST'])
+def readDataSet():
+    path= request.data
+    print(path)
+    dat=pd.read_csv('static/data/'+str(path))
     createTable(dat)
 
 def dataSetFilter(dataPath, filter):
@@ -38,6 +39,7 @@ def createTable(data):
     df = pd.DataFrame(data)
     for d in df:
         print(d)
+    return True
 
 
 @app.route('/')
